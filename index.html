@@ -1,6 +1,4 @@
-Here's an enhanced, more advanced HTML template with modern design elements, dropdown menus, and a professional look:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +7,19 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
     <title>LAKSHAYNISCHAYA - Premier Educational Platform</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f7f9;
+            background: #f9f9f9;
             color: #333;
         }
         header {
-            background: linear-gradient(to right, #00264d, #0099cc);
+            background: linear-gradient(135deg, #0066cc, #3399ff);
             color: #fff;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         header img {
             max-width: 120px;
@@ -29,7 +28,7 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
         header h1 {
             font-size: 2.5em;
             margin: 10px 0;
-            font-weight: 700;
+            font-weight: bold;
         }
         header p {
             font-size: 1.2em;
@@ -41,7 +40,10 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             padding: 15px 0;
             text-align: center;
             position: relative;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .menu-icon {
+            display: none;
         }
         nav ul {
             list-style: none;
@@ -50,38 +52,17 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
         }
         nav ul li {
             display: inline-block;
-            position: relative;
+            margin: 0 15px;
         }
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            display: block;
-            padding: 15px 20px;
             font-size: 1.1em;
             font-weight: 500;
-            transition: background 0.3s ease;
+            transition: color 0.3s ease;
         }
         nav ul li a:hover {
-            background: #004d99;
-        }
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #003366;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 0;
-        }
-        nav ul li:hover ul {
-            display: block;
-        }
-        nav ul li ul li {
-            display: block;
-        }
-        nav ul li ul li a {
-            padding: 10px 20px;
-            font-size: 1em;
+            color: #ffcc00;
         }
         .container {
             width: 90%;
@@ -89,12 +70,12 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             margin: 30px auto;
             padding: 30px;
             background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h2 {
             color: #003366;
-            border-bottom: 4px solid #003366;
+            border-bottom: 3px solid #003366;
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-size: 2em;
@@ -107,9 +88,9 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             justify-content: space-between;
         }
         .profile-card {
-            background: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             width: 100%;
             max-width: 300px;
@@ -135,11 +116,11 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             color: #666;
         }
         .contact-box {
-            background: #eaf6f6;
+            background: #eaf4f4;
             border: 1px solid #c0e0e0;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
         .contact-box h2 {
@@ -170,7 +151,7 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             position: relative;
             bottom: 0;
             width: 100%;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
         footer a {
             color: #ffd700;
@@ -186,20 +167,41 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
         .footer-links a:hover {
             text-decoration: underline;
         }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+        }
         @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
             nav ul li {
+                margin: 10px 0;
+            }
+            .menu-icon {
+                display: inline;
+            }
+            .menu-toggle {
                 display: block;
-                margin: 5px 0;
             }
-            .container {
-                width: 95%;
-                padding: 20px;
-            }
-            .profile-card {
-                max-width: 100%;
+            .menu-active ul {
+                display: flex;
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('menu-active');
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -210,14 +212,10 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
 </header>
 
 <nav>
+    <span class="menu-toggle">&#9776;</span>
     <ul>
         <li><a href="#about-us">About Us</a></li>
-        <li><a href="#contact-us">Contact Us</a>
-            <ul>
-                <li><a href="#contact-us">Contact Us</a></li>
-                <li><a href="#social-media">Social Media</a></li>
-            </ul>
-        </li>
+        <li><a href="#contact-us">Contact Us</a></li>
         <li><a href="#privacy-policy">Privacy Policy</a></li>
         <li><a href="#disclaimer">Disclaimer</a></li>
     </ul>
@@ -226,7 +224,7 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
 <div class="container">
     <section id="about-us">
         <h2>About Us</h2>
-        <p>At LAKSHAYNISCHAYA, we are dedicated to providing exceptional educational resources and innovative learning materials. Our mission is to empower students and professionals with the tools they need to achieve their goals and excel in their fields.</p>
+        <p>At LAKSHAYNISCHAYA, we are dedicated to providing top-notch educational resources aimed at fostering academic and professional excellence. Our platform features cutting-edge learning materials designed to help individuals reach their full potential.</p>
     </section>
 
     <section id="profile">
@@ -240,10 +238,10 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             <div class="profile-card">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVyCSOyQKKRuGQSLM0tXrD680OqNR-oFrCmQ&usqp=CAU" alt="Ms. Priya Patel">
                 <h3>Ms. Priya Patel</h3>
-                
-                <p>Educational Technologist with a focus on interactive learning tools and innovative teaching methodologies.</p>
+                <p>Educational Technologist specializing in interactive learning tools and innovative teaching methodologies.</p>
             </div>
             <div class="profile-card">
+                
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsQsnkoRYorjAOJ_iCIMK3ojE3TOPnOS9ozdrYnpfwpsr502eGimFKeDI&s=10" alt="Mr. Amit Sharma">
                 <h3>Mr. Amit Sharma</h3>
                 <p>Content Creator and Academic Advisor specializing in e-learning solutions and student engagement.</p>
@@ -251,7 +249,7 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
             <div class="profile-card">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCKXr71jZrKqdpQ3OEMJmOKJx43FLpvpbvLw&usqp=CAU" alt="Dr. Neha Gupta">
                 <h3>Dr. Neha Gupta</h3>
-                <p>Expert in curriculum design and student-centered learning approaches, with a passion for educational reform.</p>
+                <p>Expert in curriculum design and student-centered learning approaches, passionate about educational reform.</p>
             </div>
         </div>
     </section>
@@ -259,23 +257,21 @@ Here's an enhanced, more advanced HTML template with modern design elements, dro
     <section id="contact-us">
         <div class="contact-box">
             <h2>Contact Us</h2>
-            <p>We would love to hear from you! Please feel free to reach out to us using the contact details below or follow us on our social media channels.</p>
+            <p>Have any questions or need further information? Feel free to reach out to us using the details below:</p>
             <p><strong>Email:</strong> <a href="mailto:info@lakshaynischaya.com">info@lakshaynischaya.com</a></p>
-            <p><strong>Phone:</strong> +91 9876543210</p>
-            <p><strong>Address:</strong> 123 Educational Lane, Knowledge City, India</p>
-            <p><a href="#social-media">Follow Us on Social Media</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+911234567890">+91 123 456 7890</a></p>
+            <p><strong>Address:</strong> 123 Education Street, Knowledge City, India</p>
         </div>
     </section>
 
-    <section id="social-media">
-        <div class="contact-box">
-            <h2>Social Media</h2>
-            <p>Connect with us on our social media platforms for the latest updates and news.</p>
-            <p><a href="https://www.facebook.com/LakshayNischaya" target="_blank">Facebook</a></p>
-            <p><a href="https://twitter.com/LakshayNischaya" target="_blank">Twitter</a></p>
-            <p><a href="https://www.linkedin.com/company/lakshay-nischaya" target="_blank">LinkedIn</a></p>
-            <p><a href="https://www.instagram.com/LakshayNischaya" target="_blank">Instagram</a></p>
-        </div>
+    <section id="privacy-policy">
+        <h2>Privacy Policy</h2>
+        <p>Our Privacy Policy ensures the protection of your personal data. We are committed to safeguarding your privacy and handling your data with the utmost care. For more details, please read our full Privacy Policy.</p>
+    </section>
+
+    <section id="disclaimer">
+        <h2>Disclaimer</h2>
+        <p>The information provided on our platform is for educational purposes only. While we strive to ensure accuracy, we make no guarantees about the completeness or reliability of the information. Please use it at your own risk.</p>
     </section>
 </div>
 
