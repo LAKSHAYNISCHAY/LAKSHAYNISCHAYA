@@ -11,7 +11,7 @@
             padding: 0;
             background: #f9f9f9;
             color: #333;
-            transition: background 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
         header {
             background: linear-gradient(135deg, #0066cc, #3399ff);
@@ -72,7 +72,6 @@
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s, color 0.3s;
         }
         h2 {
             color: #003366;
@@ -179,34 +178,29 @@
             top: 20px;
             right: 20px;
             font-size: 1.5em;
-            color: #fff;
             cursor: pointer;
-            transition: color 0.3s;
-        }
-        .night-mode-toggle:hover {
-            color: #ffcc00;
+            color: #fff;
+            z-index: 11;
         }
         .night-mode {
-            background: #1e1e1e;
-            color: #f1f1f1;
+            background-color: #333;
+            color: #fff;
         }
         .night-mode header {
-            background: linear-gradient(135deg, #003366, #0066cc);
+            background: linear-gradient(135deg, #004080, #00264d);
         }
         .night-mode nav {
-            background: #002233;
+            background: #00264d;
         }
         .night-mode .container {
-            background: #2e2e2e;
-        }
-        .night-mode .profile-card {
-            background: #333;
+            background: #444;
         }
         .night-mode .contact-box {
-            background: #2c3e50;
+            background: #555;
+            border-color: #666;
         }
         .night-mode footer {
-            background: #002233;
+            background: #00264d;
         }
         @media (max-width: 768px) {
             nav ul {
@@ -217,7 +211,7 @@
                 margin: 10px 0;
             }
             .menu-icon {
-                display: none;
+                display: inline;
             }
             .menu-toggle {
                 display: block;
@@ -232,13 +226,14 @@
             const menuToggle = document.querySelector('.menu-toggle');
             const navMenu = document.querySelector('nav');
             const nightModeToggle = document.querySelector('.night-mode-toggle');
+            const body = document.body;
 
             menuToggle.addEventListener('click', function () {
                 navMenu.classList.toggle('menu-active');
             });
 
             nightModeToggle.addEventListener('click', function () {
-                document.body.classList.toggle('night-mode');
+                body.classList.toggle('night-mode');
             });
         });
     </script>
@@ -249,7 +244,7 @@
     <img src="https://raw.githubusercontent.com/LAKSHAYNISCHAY/Images/75b1d7c758edc91a415a3190150e2b9b6a87a1ed/Professional_Education_Badge_Logo-removebg-preview.png" alt="LAKSHAYNISCHAYA Logo">
     <h1>LAKSHAYNISCHAYA</h1>
     <p>Premier Educational Platform for Future Leaders</p>
-    <span class="night-mode-toggle">&#9790;</span>
+    <span class="night-mode-toggle">&#127769;</span>
 </header>
 
 <nav>
@@ -272,33 +267,42 @@
         <h2>Meet Our Experts</h2>
         <div class="profile">
             <div class="profile-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYrLyBf_QDx5jyziQcpmy0LWqsGaU4HuoWc2kC0w1lEKnf4xFxPg" alt="Profile Picture">
-                <h3>John Doe</h3>
-                <p>Educational Specialist</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYrLyBf_QDx5jyziQcpmy0LWqsGaU4NMAisltGmsKzQIKrWAGbFrK1AdtT&s=10" alt="Dr. Rajesh Kumar">
+                <h3>Dr. Rajesh Kumar</h3>
+                <p>Senior Education Specialist with over 15 years of experience in curriculum development and educational technology.</p>
             </div>
             <div class="profile-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0rG5sKwF-yD9B1ofxM8Wbnf5L1Wtv4k95Ek2piz9ut69FZJ6Oqw" alt="Profile Picture">
-                <h3>Jane Smith</h3>
-                <p>Curriculum Developer</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSG9TiK7q5TGrQ7XPzwwQaeze9MgO7puZ_g9uMAxWzXw&s=10" alt="Dr. Sneha Patel">
+                <h3>Dr. Sneha Patel</h3>
+                <p>Expert in student engagement and interactive learning solutions with a passion for innovation in education.</p>
             </div>
         </div>
     </section>
 
     <section id="contact-us" class="contact-box">
         <h2>Contact Us</h2>
-        <p>If you have any questions or feedback, feel free to reach out to us:</p>
-        <p>Email: <a href="mailto:info@lakshaynischaya.com">info@lakshaynischaya.com</a></p>
+        <p>For any inquiries or feedback, please reach out to us using the following contact details:</p>
+        <p>Email: <a href="mailto:contact@lakshaynischaya.com">contact@lakshaynischaya.com</a></p>
         <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
-        <p>Follow us on <a href="https://twitter.com/lakshaynischaya" target="_blank">Twitter</a> and <a href="https://linkedin.com/company/lakshaynischaya" target="_blank">LinkedIn</a></p>
+    </section>
+
+    <section id="privacy-policy">
+        <h2>Privacy Policy</h2>
+        <p>Your privacy is important to us. We are committed to protecting your personal information and ensuring that it is handled in a secure manner. For more details, please read our full <a href="#">Privacy Policy</a>.</p>
+    </section>
+
+    <section id="disclaimer">
+        <h2>Disclaimer</h2>
+        <p>The information provided on our platform is for educational purposes only. We strive to ensure that all content is accurate, but we make no warranties or representations regarding the accuracy or completeness of the information provided. For more details, please read our full <a href="#">Disclaimer</a>.</p>
     </section>
 </div>
 
 <footer>
-    <p>&copy; 2024 LAKSHAYNISCHAYA. All rights reserved.</p>
+    <p>&copy; 2024 LAKSHAYNISCHAYA. All Rights Reserved.</p>
     <div class="footer-links">
-        <a href="#about-us">About Us</a> |
-        <a href="#contact-us">Contact Us</a> |
-        <a href="#privacy-policy">Privacy Policy</a> |
+        <a href="#about-us">About Us</a>
+        <a href="#contact-us">Contact Us</a>
+        <a href="#privacy-policy">Privacy Policy</a>
         <a href="#disclaimer">Disclaimer</a>
     </div>
 </footer>
