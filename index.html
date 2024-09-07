@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,7 @@
             padding: 0;
             background: #f9f9f9;
             color: #333;
+            transition: background 0.3s, color 0.3s;
         }
         header {
             background: linear-gradient(135deg, #0066cc, #3399ff);
@@ -72,6 +72,7 @@
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, color 0.3s;
         }
         h2 {
             color: #003366;
@@ -173,6 +174,40 @@
             color: #fff;
             cursor: pointer;
         }
+        .night-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .night-mode-toggle:hover {
+            color: #ffcc00;
+        }
+        .night-mode {
+            background: #1e1e1e;
+            color: #f1f1f1;
+        }
+        .night-mode header {
+            background: linear-gradient(135deg, #003366, #0066cc);
+        }
+        .night-mode nav {
+            background: #002233;
+        }
+        .night-mode .container {
+            background: #2e2e2e;
+        }
+        .night-mode .profile-card {
+            background: #333;
+        }
+        .night-mode .contact-box {
+            background: #2c3e50;
+        }
+        .night-mode footer {
+            background: #002233;
+        }
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -196,9 +231,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.querySelector('.menu-toggle');
             const navMenu = document.querySelector('nav');
-            
+            const nightModeToggle = document.querySelector('.night-mode-toggle');
+
             menuToggle.addEventListener('click', function () {
                 navMenu.classList.toggle('menu-active');
+            });
+
+            nightModeToggle.addEventListener('click', function () {
+                document.body.classList.toggle('night-mode');
             });
         });
     </script>
@@ -209,6 +249,7 @@
     <img src="https://raw.githubusercontent.com/LAKSHAYNISCHAY/Images/75b1d7c758edc91a415a3190150e2b9b6a87a1ed/Professional_Education_Badge_Logo-removebg-preview.png" alt="LAKSHAYNISCHAYA Logo">
     <h1>LAKSHAYNISCHAYA</h1>
     <p>Premier Educational Platform for Future Leaders</p>
+    <span class="night-mode-toggle">&#9790;</span>
 </header>
 
 <nav>
@@ -231,56 +272,33 @@
         <h2>Meet Our Experts</h2>
         <div class="profile">
             <div class="profile-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYrLyBf_QDx5jyziQcpmy0LWqsGaU4NMAisltGmsKzQIKrWAGbFrK1AdtT&s=10" alt="Dr. Rajesh Kumar">
-                <h3>Dr. Rajesh Kumar</h3>
-                <p>Senior Education Specialist with over 15 years of experience in curriculum development and educational technology.</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYrLyBf_QDx5jyziQcpmy0LWqsGaU4HuoWc2kC0w1lEKnf4xFxPg" alt="Profile Picture">
+                <h3>John Doe</h3>
+                <p>Educational Specialist</p>
             </div>
             <div class="profile-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVyCSOyQKKRuGQSLM0tXrD680OqNR-oFrCmQ&usqp=CAU" alt="Ms. Priya Patel">
-                <h3>Ms. Priya Patel</h3>
-                <p>Educational Technologist specializing in interactive learning tools and innovative teaching methodologies.</p>
-            </div>
-            <div class="profile-card">
-                
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsQsnkoRYorjAOJ_iCIMK3ojE3TOPnOS9ozdrYnpfwpsr502eGimFKeDI&s=10" alt="Mr. Amit Sharma">
-                <h3>Mr. Amit Sharma</h3>
-                <p>Content Creator and Academic Advisor specializing in e-learning solutions and student engagement.</p>
-            </div>
-            <div class="profile-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCKXr71jZrKqdpQ3OEMJmOKJx43FLpvpbvLw&usqp=CAU" alt="Dr. Neha Gupta">
-                <h3>Dr. Neha Gupta</h3>
-                <p>Expert in curriculum design and student-centered learning approaches, passionate about educational reform.</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0rG5sKwF-yD9B1ofxM8Wbnf5L1Wtv4k95Ek2piz9ut69FZJ6Oqw" alt="Profile Picture">
+                <h3>Jane Smith</h3>
+                <p>Curriculum Developer</p>
             </div>
         </div>
     </section>
 
-    <section id="contact-us">
-        <div class="contact-box">
-            <h2>Contact Us</h2>
-            <p>Have any questions or need further information? Feel free to reach out to us using the details below:</p>
-            <p><strong>Email:</strong> <a href="mailto:info@lakshaynischaya.com">info@lakshaynischaya.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+911234567890">+91 123 456 7890</a></p>
-            <p><strong>Address:</strong> 123 Education Street, Knowledge City, India</p>
-        </div>
-    </section>
-
-    <section id="privacy-policy">
-        <h2>Privacy Policy</h2>
-        <p>Our Privacy Policy ensures the protection of your personal data. We are committed to safeguarding your privacy and handling your data with the utmost care. For more details, please read our full Privacy Policy.</p>
-    </section>
-
-    <section id="disclaimer">
-        <h2>Disclaimer</h2>
-        <p>The information provided on our platform is for educational purposes only. While we strive to ensure accuracy, we make no guarantees about the completeness or reliability of the information. Please use it at your own risk.</p>
+    <section id="contact-us" class="contact-box">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, feel free to reach out to us:</p>
+        <p>Email: <a href="mailto:info@lakshaynischaya.com">info@lakshaynischaya.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+        <p>Follow us on <a href="https://twitter.com/lakshaynischaya" target="_blank">Twitter</a> and <a href="https://linkedin.com/company/lakshaynischaya" target="_blank">LinkedIn</a></p>
     </section>
 </div>
 
 <footer>
     <p>&copy; 2024 LAKSHAYNISCHAYA. All rights reserved.</p>
     <div class="footer-links">
-        <a href="#about-us">About Us</a>
-        <a href="#contact-us">Contact Us</a>
-        <a href="#privacy-policy">Privacy Policy</a>
+        <a href="#about-us">About Us</a> |
+        <a href="#contact-us">Contact Us</a> |
+        <a href="#privacy-policy">Privacy Policy</a> |
         <a href="#disclaimer">Disclaimer</a>
     </div>
 </footer>
